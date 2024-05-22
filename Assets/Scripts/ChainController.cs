@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,10 @@ public class ChainController : Chain
     private void OnDestroy()
     {
         DeleteActionHandler();
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision != null && collision.gameObject.tag == "Player") { throw new Exception("Ура! Победа!"); }
     }
     private void SetNextPostion(Vector3 nextPostion)
     {

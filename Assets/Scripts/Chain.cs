@@ -19,6 +19,18 @@ namespace Assets.Scripts
         {
             _addChainOnNextStep = true;
         }
+        public void GetChainList(ref List<Chain> chainList)
+        {
+            if(chainList == null)
+            {
+                chainList = new List<Chain>();
+            }
+            chainList.Add(this);
+            if(NextChain != null)
+            {
+                NextChain.GetChainList(ref chainList);
+            }
+        }
         public void AddChain()
         {
             _addChainOnNextStep = false;

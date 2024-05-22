@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Chain.cs" />
     <Compile Include="Assets\Scripts\ChainController.cs" />
     <Compile Include="Assets\Scripts\SnakeController.cs" />
+    <Compile Include="Assets\Scripts\BackGround.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0CC5C8A7-0432-1A0D-FB91-2C4BFFA4E9C2}</ProjectGuid>
+    <ProjectGuid>{27E3B7BB-7210-4DB8-2CDE-8C5F9221D3B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,9 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AppleController.cs" />
-    <Compile Include="Assets\Scripts\SneakController.cs" />
-    <Compile Include="Assets\Scripts\ChainController.cs" />
     <Compile Include="Assets\Scripts\Chain.cs" />
+    <Compile Include="Assets\Scripts\ChainController.cs" />
+    <Compile Include="Assets\Scripts\SnakeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

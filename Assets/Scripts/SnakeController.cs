@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SneakController : Chain
+public class SnakeController : Chain
 {
     private Vector3 _currentPosition;
     private Quaternion _currentRotation;

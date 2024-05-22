@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcebb575b1dd5274382fb7112e32a7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sneakController: {fileID: 1352095395}
+  _snakeController: {fileID: 1352095395}
 --- !u!1001 &512851312789228144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7529809334226869285, guid: 8c8d5ddaf29030748a6a5c51e5228eb9, type: 3}
       propertyPath: m_Name
-      value: Sneak
+      value: Snake
       objectReference: {fileID: 0}
     - target: {fileID: 7529809334226869287, guid: 8c8d5ddaf29030748a6a5c51e5228eb9, type: 3}
       propertyPath: m_RootOrder

@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class AppleController : MonoBehaviour
 {
-    [SerializeField] private SneakController _sneakController;
+    [SerializeField] private SnakeController _snakeController;
     // Start is called before the first frame update
     private void Start()
     {
-        if( _sneakController != null )
+        if( _snakeController != null )
         {
-            _sneakController.OnPostionAndRotationUpdated += ComparePositions;
+            _snakeController.OnPostionAndRotationUpdated += ComparePositions;
         }
     }
     private void ComparePositions(Vector3 postion, Quaternion rotation)
@@ -17,9 +17,9 @@ public class AppleController : MonoBehaviour
     }
     private void OnDestroy()
     {
-        if (_sneakController != null)
+        if (_snakeController != null)
         {
-            _sneakController.OnPostionAndRotationUpdated -= ComparePositions;
+            _snakeController.OnPostionAndRotationUpdated -= ComparePositions;
         }
     }
     private void SetPostion()
@@ -28,9 +28,9 @@ public class AppleController : MonoBehaviour
         var newX = (float)rnd.Next(-8, 8) + 0.5f;
         var newY = rnd.Next(-4, 4);
         transform.position = new Vector3 (newX, newY, 0);
-        if(_sneakController != null)
+        if(_snakeController != null)
         {
-            _sneakController.AddChainOnNextStep();
+            _snakeController.AddChainOnNextStep();
         }
     }
 }

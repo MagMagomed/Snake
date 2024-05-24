@@ -37,14 +37,14 @@ public class BackGround : MonoBehaviour
         }
         catch(IndexOutOfRangeException exception)
         {
-            int rows = Range.GetUpperBound(0) + 1;    // количество строк
+            int rows = Range.GetUpperBound(0) + 1;
             int columns = Range.Length / rows;
             throw new IndexOutOfRangeException($"Range[{coordinates.x}, {coordinates.y}] при rows = {rows} && columns = {columns}");
         }
     }
     public Vector2Int GetCoordinates(Vector2Int coordinates)
     {
-        int rows = Range.GetUpperBound(0) + 1;    // количество строк
+        int rows = Range.GetUpperBound(0) + 1;
         int columns = Range.Length / rows;
         if (coordinates.x == rows) coordinates.x = 0;
         if (coordinates.y == columns) coordinates.y = 0;
@@ -55,7 +55,7 @@ public class BackGround : MonoBehaviour
     private void Init()
     {
         Range = GetRange();
-        int rows = Range.GetUpperBound(0) + 1;    // количество строк
+        int rows = Range.GetUpperBound(0) + 1;
         int columns = Range.Length / rows;
         for (int i = 0; i < rows; i++)
         {

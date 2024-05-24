@@ -43,7 +43,8 @@ public class SnakeController : Chain
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) 
-            && transform.rotation != Quaternion.Euler(0f, 0f, 180f))
+            && transform.rotation != Quaternion.Euler(0f, 0f, -180f)
+            && transform.rotation!= Quaternion.Euler(0f, 0f, 180f))
         {
             _newRotation = Quaternion.Euler(0f, 0f, 0f);
         }

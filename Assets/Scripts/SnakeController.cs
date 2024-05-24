@@ -31,24 +31,24 @@ public class SnakeController : Chain
     }
     private void UpdateNewRotation()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow)
+        if (Input.GetAxisRaw("Horizontal") > 0
             && transform.rotation != Quaternion.Euler(0f, 0f, 90f))
         {
             _newRotation = Quaternion.Euler(0f, 0f, -90f);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow)
+        if (Input.GetAxisRaw("Horizontal") < 0
             && transform.rotation != Quaternion.Euler(0f, 0f, -90f))
         {
             _newRotation = Quaternion.Euler(0f, 0f, 90f);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) 
+        if (Input.GetAxisRaw("Vertical") > 0 
             && transform.rotation != Quaternion.Euler(0f, 0f, -180f)
-            && transform.rotation!= Quaternion.Euler(0f, 0f, 180f))
+            && transform.rotation != Quaternion.Euler(0f, 0f, 180f))
         {
             _newRotation = Quaternion.Euler(0f, 0f, 0f);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow)
+        if (Input.GetAxisRaw("Vertical") < 0
             && transform.rotation != Quaternion.Euler(0f, 0f, 0f))
         {
             _newRotation = Quaternion.Euler(0f, 0f, 180f);

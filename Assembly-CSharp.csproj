@@ -56,11 +56,13 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MoveFX.cs" />
+    <Compile Include="Assets\Scripts\BackGround.cs" />
+    <Compile Include="Assets\Scripts\BackGroundData.cs" />
     <Compile Include="Assets\Scripts\AppleController.cs" />
     <Compile Include="Assets\Scripts\Chain.cs" />
     <Compile Include="Assets\Scripts\ChainController.cs" />
     <Compile Include="Assets\Scripts\SnakeController.cs" />
-    <Compile Include="Assets\Scripts\BackGround.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

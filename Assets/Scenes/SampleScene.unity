@@ -300,6 +300,22 @@ PrefabInstance:
       propertyPath: _minY
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 6560725413455746893, guid: 8a00edf2e739448439ec676af7b271ce, type: 3}
+      propertyPath: _backGroundData.MaxX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560725413455746893, guid: 8a00edf2e739448439ec676af7b271ce, type: 3}
+      propertyPath: _backGroundData.MaxY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560725413455746893, guid: 8a00edf2e739448439ec676af7b271ce, type: 3}
+      propertyPath: _backGroundData.MinX
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560725413455746893, guid: 8a00edf2e739448439ec676af7b271ce, type: 3}
+      propertyPath: _backGroundData.MinY
+      value: -4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a00edf2e739448439ec676af7b271ce, type: 3}
 --- !u!1001 &5138232839571120429
@@ -374,6 +390,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 369528005526324722, guid: 8c8d5ddaf29030748a6a5c51e5228eb9, type: 3}
+      propertyPath: _backGround
+      value: 
+      objectReference: {fileID: 676089780}
     - target: {fileID: 6840350743603326012, guid: 8c8d5ddaf29030748a6a5c51e5228eb9, type: 3}
       propertyPath: chainPref
       value: 

@@ -63,22 +63,26 @@ public class AppleController : MonoBehaviour
     private Vector2? GiveMeAPoint(Vector2[] exclude)
     {
         var range = _backGround.Range;
-
-        Vector2? result = null;
-        List<Vector2> included = new List<Vector2>();
-        included.AddRange(
-            range.Where(
-                point => !exclude.Any(
-                    excludedPoint =>
-                        Mathf.Approximately(point.x, excludedPoint.x) 
-                        && Mathf.Approximately(point.y, excludedPoint.y)
-                    )
-                )
-            );
-
-        if (included.Count == 0) { return result; }
+        int rows = range.GetUpperBound(0) + 1;    // количество строк
+        int columns = range.Length / rows;
+        List<Vector2Int> indexes = new List<Vector2Int>();
+        for ( int i = 0; i < rows; i++)
+        {
+            for ( int j = 0; j < columns; j++)
+            {
+                if(exclude.Any(item => 
+                    Mathf.Approximately(item.x, range[i,j].x)
+                    && Mathf.Approximately(item.y, range[i, j].y)))
+                {
+                    continue;
+                }
+                indexes.Add(new Vector2Int(i, j));
+            }
+        }
         var random = new System.Random();
-        var index = random.Next(0, included.Count - 1);
-        return included[index];
+
+        var index = random.Next(0, indexes.Count - 1);
+        var coordinates = indexes[index];
+        return range[coordinates.x, coordinates.y];
     }
 }

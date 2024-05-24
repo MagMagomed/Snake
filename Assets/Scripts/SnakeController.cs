@@ -9,6 +9,7 @@ public class SnakeController : Chain
     private Vector3 _currentPosition;
     private Quaternion _currentRotation;
     private Quaternion _newRotation;
+    [SerializeField] private MoveFX _moveFX;
     private void Start()
     {
         StartCoroutine(MoveForwardAnimation(0.2f));
@@ -24,7 +25,7 @@ public class SnakeController : Chain
         {
             yield return new WaitForSeconds(waitTime);
             transform.rotation = _newRotation;
-            transform.position += transform.rotation * Vector3Int.up;
+            transform.position = _moveFX.GetNextPosition(_currentRotation.eulerAngles.z);
             SetCurrentPosition();
         }
     }

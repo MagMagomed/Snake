@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Game
 {
+
     [Serializable]
     public struct BackGroundData
     {
@@ -16,4 +17,5 @@ namespace Assets.Scripts
         public float MinY;
         public float MaxY;
     }
+
 }

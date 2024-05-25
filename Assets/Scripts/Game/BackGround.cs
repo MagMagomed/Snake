@@ -56,6 +56,7 @@ namespace Assets.Scripts.Game
         }
         private void Init()
         {
+            InitBackgroundData();
             Range = GetRange();
             int rows = Range.GetUpperBound(0) + 1;
             int columns = Range.Length / rows;
@@ -65,9 +66,24 @@ namespace Assets.Scripts.Game
                 {
                     var item = Instantiate(_fieldElementPref);
                     item.transform.position = Range[i, j];
-                    item.transform.SetParent(gameObject.transform);
+                    item.transform.SetParent(gameObject.transform, true);
                 }
             }
+        }
+
+        private void InitBackgroundData()
+        {
+            Camera camera = Camera.main;
+            Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0)); // bottom-left corner
+            Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1)); // top-right corner
+
+            _backGroundData = new BackGroundData()
+            {
+                MinX = min.x + 0.5f,
+                MaxX = max.x,
+                MinY = min.y + 0.5f,
+                MaxY = max.y - 0.5f
+            };
         }
     }
 }

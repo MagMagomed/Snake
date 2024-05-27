@@ -6,14 +6,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.Game
 {
-    public class MoveFX : MonoBehaviour
+    public class MoveFX
     {
-        [SerializeField] private BackGround _backGround;
+        private BackGround _backGround;
         private Vector2Int _currentPosition;
         private Dictionary<float, MovementDirection> directions;
-        // Start is called before the first frame update
-        private void Start()
+        public MoveFX(BackGround backGround)
         {
+            _backGround = backGround;
+
             directions = new Dictionary<float, MovementDirection>();
             directions.Add(-90f, MovementDirection.Right);
             directions.Add(270f, MovementDirection.Right);

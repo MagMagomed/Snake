@@ -7,24 +7,28 @@ namespace Assets.Scripts.Game
 {
     public class AppleController : MonoBehaviour
     {
-        [SerializeField] private SnakeController _snakeController;
-        [SerializeField] private BackGround _backGround;
+        private BackGround _backGround;
+        private SnakeController _snakeController;
         // Start is called before the first frame update
-        private void Start()
+        public void Initialize(SnakeController snakeController, BackGround backGround)
         {
+            _snakeController = snakeController;
+            _backGround = backGround;
             if (_snakeController != null)
             {
                 _snakeController.OnPostionAndRotationUpdated += ComparePositions;
             }
+            SetPostion();
         }
         private void ComparePositions(Vector3 postion, Quaternion rotation)
         {
-        }
-        private void OnTriggerStay2D(Collider2D collider)
-        {
-            if (collider != null)
+            if(transform.position == postion)
             {
                 SetPostion();
+                if (_snakeController != null)
+                {
+                    _snakeController.AddChainOnNextStep();
+                }
             }
         }
         private void OnDestroy()
@@ -37,11 +41,6 @@ namespace Assets.Scripts.Game
         private void SetPostion()
         {
             transform.position = GetPosition();
-
-            if (_snakeController != null)
-            {
-                _snakeController.AddChainOnNextStep();
-            }
         }
         private Vector3 GetPosition()
         {

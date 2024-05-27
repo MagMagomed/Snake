@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Game
@@ -12,10 +13,6 @@ namespace Assets.Scripts.Game
         [SerializeField] private BackGroundData _backGroundData;
         [SerializeField] private GameObject _fieldElementPref;
         public Vector2[,] Range { get; private set; }
-        private void Start()
-        {
-            Init();
-        }
         public Vector2[,] GetRange()
         {
             var range = new Vector2[(int)(_backGroundData.MaxX * 2 + 1), (int)(_backGroundData.MaxY * 2 + 1)];
@@ -54,7 +51,7 @@ namespace Assets.Scripts.Game
             if (coordinates.y < 0) coordinates.y = columns - 1;
             return coordinates;
         }
-        private void Init()
+        public void Initialize()
         {
             InitBackgroundData();
             Range = GetRange();

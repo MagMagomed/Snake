@@ -11,11 +11,15 @@ namespace Assets.Scripts.Game
         private Vector3 _currentPosition;
         private Quaternion _currentRotation;
         private Quaternion _newRotation;
-        [SerializeField] private MoveFX _moveFX;
+        private MoveFX _moveFX;
+        public void Initialize(Vector2 position, MoveFX moveFX)
+        {
+            transform.position = position;
+            _moveFX = moveFX;
+        }
         private void Start()
         {
             StartCoroutine(MoveForwardAnimation(0.2f));
-            SetCurrentPosition();
         }
         private void Update()
         {

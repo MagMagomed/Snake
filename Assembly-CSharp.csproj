@@ -58,14 +58,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\MoveFX.cs" />
     <Compile Include="Assets\Scripts\Game\BackGround.cs" />
+    <Compile Include="Assets\Scripts\WinMenu\GoToMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu\GoToStart.cs" />
     <Compile Include="Assets\Scripts\Game\BackGroundData.cs" />
     <Compile Include="Assets\Scripts\Game\AppleController.cs" />
     <Compile Include="Assets\Scripts\Game\Chain.cs" />
     <Compile Include="Assets\Scripts\Game\ChainController.cs" />
     <Compile Include="Assets\Scripts\Game\SnakeController.cs" />
     <Compile Include="Assets\Scripts\SceneController.cs" />
-    <Compile Include="Assets\Scripts\WinMenu\GoToMenu.cs" />
-    <Compile Include="Assets\Scripts\Menu\GoToStart.cs" />
+    <Compile Include="Assets\Scripts\SampleSceneEntryPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

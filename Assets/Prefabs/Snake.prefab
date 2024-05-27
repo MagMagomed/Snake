@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6840350743603326012}
   - component: {fileID: 4040283644351484549}
   - component: {fileID: 678236909843864452}
-  - component: {fileID: 369528005526324722}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Player
@@ -29,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7529809334226869285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.225191, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chainPref: {fileID: 7016333306547831275, guid: 206897cfaa7724341af2f7167b2e943d, type: 3}
-  _moveFX: {fileID: 369528005526324722}
 --- !u!61 &4040283644351484549
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,16 +147,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &369528005526324722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7529809334226869285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890d3861c54a9f459e5317829e58987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backGround: {fileID: 6560725413455746893, guid: 8a00edf2e739448439ec676af7b271ce, type: 3}

@@ -66,6 +66,7 @@ namespace Assets.Scripts.Game
                     item.transform.SetParent(gameObject.transform, true);
                 }
             }
+            SceneController.OnLose += StopAllCoroutines;
         }
 
         private void InitBackgroundData()
@@ -81,6 +82,10 @@ namespace Assets.Scripts.Game
                 MinY = min.y + 0.5f,
                 MaxY = max.y - 0.5f
             };
+        }
+        private void OnDestroy()
+        {
+            SceneController.OnLose -= StopAllCoroutines;
         }
     }
 }

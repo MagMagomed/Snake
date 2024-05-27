@@ -16,6 +16,8 @@ namespace Assets.Scripts.Game
         {
             transform.position = position;
             _moveFX = moveFX;
+            _snakeController = this;
+            SceneController.OnLose += StopAllCoroutines;
         }
         private void Start()
         {
@@ -68,8 +70,12 @@ namespace Assets.Scripts.Game
             {
                 OnPostionAndRotationUpdated.Invoke(_currentPosition, _currentRotation);
                 if (_addChainOnNextStep)
-                    AddChain();
+                    AddChain(_snakeController);
             }
+        }
+        private void OnDestroy()
+        {
+            SceneController.OnLose -= StopAllCoroutines;
         }
     }
 }

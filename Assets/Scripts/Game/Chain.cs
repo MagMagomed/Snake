@@ -12,6 +12,7 @@ namespace Assets.Scripts.Game
     public abstract class Chain : MonoBehaviour
     {
         [SerializeField] public GameObject chainPref;
+        protected SnakeController _snakeController;
         public UnityAction<Vector3, Quaternion> OnPostionAndRotationUpdated { get; set; }
         public Chain NextChain { get; set; }
         protected bool _addChainOnNextStep = false;
@@ -31,18 +32,19 @@ namespace Assets.Scripts.Game
                 NextChain.GetChainList(ref chainList);
             }
         }
-        public void AddChain()
+        public void AddChain(SnakeController snakeController)
         {
             _addChainOnNextStep = false;
             if (NextChain != null)
             {
-                NextChain.AddChain();
+                NextChain.AddChain(snakeController);
                 return;
             }
             var newGameObject = Instantiate(chainPref, transform.position - transform.rotation * Vector2.up, transform.rotation);
             var chain = newGameObject.GetComponent<ChainController>();
             chain.PreviousChain = this;
             chain.chainPref = chainPref;
+            chain._snakeController = snakeController;
             NextChain = chain;
         }
     }

@@ -25,15 +25,12 @@ namespace Assets.Scripts.Game
         {
             DeleteActionHandler();
         }
-        private void OnTriggerStay2D(Collider2D collision)
-        {
-            if (collision != null && collision.gameObject.tag == "Player") 
-            {
-                SceneController.GoToLoseMenu();
-            }
-        }
         private void SetNextPostion(Vector3 nextPostion)
         {
+            if(_snakeController.transform.position == transform.position)
+            {
+                SceneController.Lose();
+            }
             _nextPosition = nextPostion;
         }
         private void SetNextRotation(Quaternion nextRotation)

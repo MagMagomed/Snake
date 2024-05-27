@@ -18,6 +18,7 @@ namespace Assets.Scripts.Game
             {
                 _snakeController.OnPostionAndRotationUpdated += ComparePositions;
             }
+            SceneController.OnLose += StopAllCoroutines;
             SetPostion();
         }
         private void ComparePositions(Vector3 postion, Quaternion rotation)
@@ -37,6 +38,7 @@ namespace Assets.Scripts.Game
             {
                 _snakeController.OnPostionAndRotationUpdated -= ComparePositions;
             }
+            SceneController.OnLose -= StopAllCoroutines;
         }
         private void SetPostion()
         {

@@ -1,6 +1,7 @@
 using Assets.Scripts.WinMenu;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
@@ -8,6 +9,7 @@ namespace Assets.Scripts
     public class SceneController : MonoBehaviour
     {
         public static SceneController instance = null;
+        public static UnityAction OnLose { get; set; }
         
         void Start()
         {
@@ -27,9 +29,14 @@ namespace Assets.Scripts
         {
             SceneManager.LoadScene("Menu");
         }
+        public static void Lose()
+        {
+            if(OnLose != null) OnLose.Invoke();
+            GoToLoseMenu();
+        }
         public static void GoToLoseMenu()
         {
-            SceneManager.LoadScene("LoseMenu");
+            SceneManager.LoadScene("LoseMenu", LoadSceneMode.Additive);
         }
         public static void GoToWinMenu()
         {

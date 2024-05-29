@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Assets.Scripts.Game.Enums;
 
 namespace Assets.Scripts.Game
 {
@@ -45,13 +46,6 @@ namespace Assets.Scripts.Game
             }
             _currentPosition = _backGround.GetCoordinates(_currentPosition);
             return _backGround.GetPosition(_currentPosition);
-        }
-        private enum MovementDirection
-        {
-            Left = 0,
-            Right = 1,
-            Up = 2,
-            Down = 3
         }
     }
 }

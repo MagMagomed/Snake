@@ -12,11 +12,13 @@ namespace Assets.Scripts.Game
         private Quaternion _currentRotation;
         private Quaternion _newRotation;
         private MoveFX _moveFX;
-        public void Initialize(Vector2 position, MoveFX moveFX)
+        private InputController _inputController;
+        public void Initialize(Vector2 position, MoveFX moveFX, InputController inputController)
         {
             transform.position = position;
             _moveFX = moveFX;
             _snakeController = this;
+            _inputController = inputController;
             SceneController.OnLose += StopAllCoroutines;
         }
         private void Start()
@@ -39,24 +41,24 @@ namespace Assets.Scripts.Game
         }
         private void UpdateNewRotation()
         {
-            if (Input.GetAxisRaw("Horizontal") > 0
+            if (_inputController.MovementDirection == Enums.MovementDirection.Right
                 && transform.rotation != Quaternion.Euler(0f, 0f, 90f))
             {
                 _newRotation = Quaternion.Euler(0f, 0f, -90f);
             }
-            if (Input.GetAxisRaw("Horizontal") < 0
+            if (_inputController.MovementDirection == Enums.MovementDirection.Left
                 && transform.rotation != Quaternion.Euler(0f, 0f, -90f))
             {
                 _newRotation = Quaternion.Euler(0f, 0f, 90f);
             }
 
-            if (Input.GetAxisRaw("Vertical") > 0
+            if (_inputController.MovementDirection == Enums.MovementDirection.Up
                 && transform.rotation != Quaternion.Euler(0f, 0f, -180f)
                 && transform.rotation != Quaternion.Euler(0f, 0f, 180f))
             {
                 _newRotation = Quaternion.Euler(0f, 0f, 0f);
             }
-            if (Input.GetAxisRaw("Vertical") < 0
+            if (_inputController.MovementDirection == Enums.MovementDirection.Down
                 && transform.rotation != Quaternion.Euler(0f, 0f, 0f))
             {
                 _newRotation = Quaternion.Euler(0f, 0f, 180f);

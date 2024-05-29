@@ -3,6 +3,7 @@ using Assets.Scripts.Game;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SampleSceneEntryPoint : MonoBehaviour
@@ -11,8 +12,10 @@ public class SampleSceneEntryPoint : MonoBehaviour
     [SerializeField] private BackGround _backgroundPrefab;
     [SerializeField] private SnakeController _snakePrefab;
     [SerializeField] private InputController _inputPrefab;
+    [SerializeField] private EventSystem _eventSystem;
     private void Start()
     {
+        Instantiate(_eventSystem);
         var background = Instantiate(_backgroundPrefab);
         var snake = Instantiate(_snakePrefab);
         var apple = Instantiate(_applePrefab);

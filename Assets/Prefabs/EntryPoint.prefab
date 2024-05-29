@@ -48,3 +48,4 @@ MonoBehaviour:
   _backgroundPrefab: {fileID: 6560725413455746893, guid: 8a00edf2e739448439ec676af7b271ce, type: 3}
   _snakePrefab: {fileID: 6840350743603326012, guid: 8c8d5ddaf29030748a6a5c51e5228eb9, type: 3}
   _inputPrefab: {fileID: 7668653544374612796, guid: 88782f9c8c84c724881925a3372e98f4, type: 3}
+  _eventSystem: {fileID: 4667514008378122217, guid: 7559051bacd62b8469671e493fafce84, type: 3}

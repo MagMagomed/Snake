@@ -19,27 +19,42 @@ namespace Assets.Scripts.Game
         }
         private void Update()
         {
-            UpdateNewRotation();
+            UpdateDirection();
         }
-        private void UpdateNewRotation()
+        private void UpdateDirection()
         {
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                _movementDirection = MovementDirection.Right;
+                SetRight();
             }
-            if (Input.GetAxisRaw("Horizontal") < 0)
+            else if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                _movementDirection = MovementDirection.Left;
+                SetLeft();
             }
-
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                _movementDirection = MovementDirection.Up;
+                SetUp();
             }
-            if (Input.GetAxisRaw("Vertical") < 0)
+            else if (Input.GetAxisRaw("Vertical") < 0)
             {
-                _movementDirection = MovementDirection.Down;
+                SetDown();
             }
+        }
+        public void SetRight()
+        {
+            _movementDirection = MovementDirection.Right;
+        }
+        public void SetLeft()
+        {
+            _movementDirection = MovementDirection.Left;
+        }
+        public void SetUp()
+        {
+            _movementDirection = MovementDirection.Up;
+        }
+        public void SetDown()
+        {
+            _movementDirection = MovementDirection.Down;
         }
     }
 }

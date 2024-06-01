@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.MapEngine
+namespace Assets.Scripts.MapEditor
 {
     /// <summary>
     /// Точка входа в редактор карты
     /// </summary>
-    public class MapEngineEntryPoint: MonoBehaviour
+    public class EntryPoint: MonoBehaviour
     {
-        [SerializeField] private MapEngineUIController _mapEnginUIControllerPrefab;
+        [SerializeField] private UIController _mapEnginUIControllerPrefab;
         private void Start()
         {
-            MapEngineUIController mapEnginUIControllerPrefab = null;
+            UIController mapEnginUIControllerPrefab = null;
             if (_mapEnginUIControllerPrefab != null) mapEnginUIControllerPrefab = Instantiate(_mapEnginUIControllerPrefab);
 
             mapEnginUIControllerPrefab.Initialize(Camera.main);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6281362984697219658}
   - component: {fileID: 4165206147813874078}
   m_Layer: 5
-  m_Name: MapEnginCanvas
+  m_Name: MapEditorCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

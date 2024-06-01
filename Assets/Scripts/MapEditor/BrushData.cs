@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.MapEngine
+namespace Assets.Scripts.MapEditor
 {
     /// <summary>
     /// Данные по кисти, которой мы рисуем карту

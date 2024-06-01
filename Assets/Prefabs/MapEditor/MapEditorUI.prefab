@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1185638343507997136}
   - component: {fileID: 1185638343507997139}
   m_Layer: 0
-  m_Name: MapEngineUI
+  m_Name: MapEditorUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 1185638343507997139}
     - target: {fileID: 6281362984697219656, guid: dc3b7121120bbe04e8f661a839c5b70c, type: 3}
       propertyPath: m_Name
-      value: MapEnginCanvas
+      value: MapEditorCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6281362984697219657, guid: dc3b7121120bbe04e8f661a839c5b70c, type: 3}
       propertyPath: m_Pivot.x

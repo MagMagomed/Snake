@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Game.Enums;
 using UnityEngine.UI;
-using Assets.Scripts.MapEngine;
+using Assets.Scripts.MapEditor;
 /// <summary>
 /// Контролирует UI редактора карты
 /// </summary>
-public class MapEngineUIController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     [SerializeField] private BrushController _brushController;
     [SerializeField] private MapController _mapController;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3059407853211414857}
   - component: {fileID: 3059407853211414859}
   m_Layer: 5
-  m_Name: BrushState
+  m_Name: BrushController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.MapEngine
+namespace Assets.Scripts.MapEditor
 {
     /// <summary>
     /// Основные данные точки

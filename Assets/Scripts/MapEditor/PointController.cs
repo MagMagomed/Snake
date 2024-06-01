@@ -14,9 +14,9 @@ namespace Assets.Scripts.MapEditor
     /// </summary>
     internal class PointController : MonoBehaviour
     {
-        [SerializeField] BrushController _brushController;
-        [SerializeField] Image _image;
-        [SerializeField] PointData _pointData;
+        [SerializeField] private BrushController _brushController;
+        [SerializeField] private Image _image;
+        [SerializeField] private PointData _pointData;
         public void Initialize(BrushController brushController)
         {
             _pointData = new PointData();

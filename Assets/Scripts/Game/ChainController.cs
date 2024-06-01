@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using Assets.Scripts.Game.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Game
 {
-    public class ChainController : Chain
+    public class ChainController : Chain, ILoseIfTouch
     {
         public Chain PreviousChain { get; set; }
         private Vector3 _nextPosition;
@@ -27,9 +28,9 @@ namespace Assets.Scripts.Game
         }
         private void SetNextPostion(Vector3 nextPostion)
         {
-            if(_snakeController.transform.position == transform.position)
+            if(ComparePosition(_snakeController.transform.position, transform.position))
             {
-                SceneController.Lose();
+                Lose();
             }
             _nextPosition = nextPostion;
         }
@@ -65,6 +66,18 @@ namespace Assets.Scripts.Game
             UpdatePostion();
             SetNextPostion(nextPostion);
             SetNextRotation(nextRotation);
+        }
+
+        public bool ComparePosition(Vector3 position1, Vector3 position2)
+        {
+            if(position1 == null || position2 == null) return false;
+            if(position1 == position2) return true;
+            return false;
+        }
+
+        public void Lose()
+        {
+            SceneController.Lose();
         }
     }
 }

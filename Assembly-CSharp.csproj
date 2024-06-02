@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\MapEditor\PointController.cs" />
     <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\PointDataCollection.cs" />
+    <Compile Include="Assets\Scripts\Game\FieldController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

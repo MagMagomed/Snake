@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f3b45a6d39c2347b459e860193b420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _map: {fileID: 11400000, guid: 123c3df636412e0419080e09a552ff76, type: 2}
-  _fieldElementPref: {fileID: 2387275877548500542, guid: 40c627211a32ec741b025b8b7c200f90, type: 3}
+  _obstacleElementPrefab: {fileID: 926637669013620063, guid: 821f18175a646c94da5b721036bf330a, type: 3}
+  _fieldElementPref: {fileID: -8305556230631354755, guid: 40c627211a32ec741b025b8b7c200f90, type: 3}

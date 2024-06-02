@@ -28,6 +28,7 @@ namespace Assets.Scripts.MapEditor
             ChangeState();
             ChangeColor();
         }
+        public void SetPointData(PointData pointData) { _pointData = pointData; }
         public PointData GetPointData() { return _pointData; }
         private void ChangeState() { _pointData.CurrentState = _brushController.BrushState; }
         private void ChangeColor()

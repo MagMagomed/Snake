@@ -23,7 +23,7 @@ public class SampleSceneEntryPoint : MonoBehaviour
         var input = Instantiate(_inputPrefab);
 
         input.Initialize();
-        background.Initialize(_map);
+        background.Initialize(_map, snake);
         var startPosition = background.GetPosition(new Vector2Int(0, 0));
         snake.Initialize(startPosition, new MoveFX(background), input);
         apple.Initialize(snake, background);

@@ -1,29 +1,33 @@
+using Assets.Scripts.Game.Interfaces;
 using Assets.Scripts.MapEditor;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Game
 {
     public class BackGround : MonoBehaviour
     {
-        private Assets.Scripts.MapEditor.Map _map;
-        [SerializeField] private GameObject _fieldElementPref;
+        private Map _map;
+        private PointDataCollection _points;
+        [SerializeField] private ObstacleController _obstacleElementPrefab;
+        [SerializeField] private FieldController _fieldElementPref;
         public Vector2[,] Range { get; private set; }
         public Vector2[,] GetRange()
         {
-            var pointData = JsonUtility.FromJson<PointDataCollection>(_map.PointData);
+            _points = JsonUtility.FromJson<PointDataCollection>(_map.PointData);
             var range = new Vector2[(int)(_map.BackGroundData.MaxX * 2 + 1), (int)(_map.BackGroundData.MaxY * 2 + 1)];
             int k = 0;
             for (int i = 0; i <= _map.BackGroundData.MaxX * 2; i++)
             {
                 for (int j = 0; j <= _map.BackGroundData.MaxY * 2; j++)
                 {
+                    if(k == _points.Data.Count) break;
+                    range[i, j] = _points.Data[k].Position;
                     k++;
-                    if(k == pointData.Data.Count) break;
-                    range[i, j] = pointData.Data[k].Position;
                 }
-                if (k == pointData.Data.Count) break;
+                if (k == _points.Data.Count) break;
             }
             return range;
         }
@@ -37,7 +41,8 @@ namespace Assets.Scripts.Game
             {
                 int rows = Range.GetUpperBound(0) + 1;
                 int columns = Range.Length / rows;
-                throw new IndexOutOfRangeException($"Range[{coordinates.x}, {coordinates.y}] при rows = {rows} && columns = {columns}");
+                var newException = new IndexOutOfRangeException($"Range[{coordinates.x}, {coordinates.y}] при rows = {rows} && columns = {columns}", exception);
+                throw newException;
             }
         }
         public Vector2Int GetCoordinates(Vector2Int coordinates)
@@ -50,19 +55,27 @@ namespace Assets.Scripts.Game
             if (coordinates.y < 0) coordinates.y = columns - 1;
             return coordinates;
         }
-        public void Initialize(Assets.Scripts.MapEditor.Map map)
+        public void Initialize(Map map, SnakeController snake)
         {
             _map = map;
             Range = GetRange();
             int rows = Range.GetUpperBound(0) + 1;
             int columns = Range.Length / rows;
-            for (int i = 0; i < rows; i++)
+            foreach (var point in _points.Data)
             {
-                for (int j = 0; j < columns; j++)
+                switch(point.CurrentState)
                 {
-                    var item = Instantiate(_fieldElementPref);
-                    item.transform.position = Range[i, j];
-                    item.transform.SetParent(gameObject.transform, true);
+                    case Enums.BrushState.ObstacleElement:
+                        var obstacle = Instantiate(_obstacleElementPrefab);
+                        obstacle.transform.position = point.Position;
+                        obstacle.transform.SetParent(gameObject.transform, true);
+                        obstacle.Initialize(snake);
+                        break;
+                    case Enums.BrushState.BackgroundElement: 
+                        var field = Instantiate(_fieldElementPref);
+                        field.transform.position = point.Position;
+                        field.transform.SetParent(gameObject.transform, true);
+                        break;
                 }
             }
             SceneController.OnLose += StopAllCoroutines;

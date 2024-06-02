@@ -17,16 +17,17 @@ namespace Assets.Scripts.MapEditor
         [SerializeField] private BackGroundData _backGroundData;
         [SerializeField] private BrushController _brushController;
         [SerializeField] private GameObject _mapDiv;
-        private PointDataCollection _pointDataMap;
+        private List<PointController> _pointControllers;
         public void Initialize()
         {
-            _pointDataMap = new PointDataCollection();
-            _pointDataMap.Data = new List<PointData>();
+            _pointControllers = new List<PointController>();
             BuildMap();
         }
         public PointDataCollection GetPointDatas()
         {
-            return _pointDataMap;
+            var pointDataMap = new PointDataCollection();
+            pointDataMap.Data = _pointControllers.Select(point => point.GetPointData()).ToList();
+            return pointDataMap;
         }
         public BackGroundData GetBackGroundData() { return _backGroundData; }
         private void BuildMap()
@@ -40,7 +41,8 @@ namespace Assets.Scripts.MapEditor
                 pointObject.Initialize(_brushController);
                 var pointData = pointObject.GetPointData();
                 pointData.Position = point;
-                _pointDataMap.Data.Add(pointData);
+                pointObject.SetPointData(pointData);
+                _pointControllers.Add(pointObject);
             }
         }
         private Vector2[,] GetRange()

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Game
 {
-    internal class ObstacleController : MonoBehaviour, ILoseIfTouch
+    internal class ObstacleController : FieldController, ILoseIfTouch
     {
         private SnakeController _controller;
         public void Initialize(SnakeController snakeController)

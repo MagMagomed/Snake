@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Game\Enums\BrushState.cs" />
     <Compile Include="Assets\Scripts\SampleSceneEntryPoint.cs" />
     <Compile Include="Assets\Scripts\WinMenu\GoToMenu.cs" />
+    <Compile Include="Assets\Scripts\MapEditor\PointDataCollection.cs" />
     <Compile Include="Assets\Scripts\Game\Interfaces\ILoseIfTouch.cs" />
     <Compile Include="Assets\Scripts\Menu\GoToStart.cs" />
     <Compile Include="Assets\Scripts\Game\BackGroundData.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\MapEditor\UIController.cs" />
     <Compile Include="Assets\Scripts\Game\SnakeController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\Map.cs" />
+    <Compile Include="Assets\Scripts\Game\FieldController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\BrushData.cs" />
     <Compile Include="Assets\Scripts\Game\InputController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\PointData.cs" />
@@ -81,8 +83,6 @@
     <Compile Include="Assets\Scripts\Game\ObstacleController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\PointController.cs" />
     <Compile Include="Assets\Scripts\SceneController.cs" />
-    <Compile Include="Assets\Scripts\MapEditor\PointDataCollection.cs" />
-    <Compile Include="Assets\Scripts\Game\FieldController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

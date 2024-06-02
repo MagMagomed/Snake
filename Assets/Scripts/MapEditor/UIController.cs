@@ -30,7 +30,8 @@ public class UIController : MonoBehaviour
 
         map.PointData = JsonUtility.ToJson(pointDatas);
         map.BackGroundData = _mapController.GetBackGroundData();
-        AssetDatabase.CreateAsset(map, "Assets/Maps/" + map.Name + ".asset");
+        var assets = AssetDatabase.FindAssets("", new string[] { "Assets/Maps" });
+        AssetDatabase.CreateAsset(map, "Assets/Maps/Map_" + (assets.Length + 1) + ".asset");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         EditorUtility.FocusProjectWindow();

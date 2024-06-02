@@ -13,7 +13,6 @@ namespace Assets.Scripts.MapEditor
     public class Map : ScriptableObject
     {
         public string PointData;
-        public string Name => Guid.NewGuid().ToString();
         public BackGroundData BackGroundData;
     }
 }

@@ -1,4 +1,4 @@
-using Assets.Scripts;
+using Assets.Scripts.MapEditor;
 using Assets.Scripts.Game;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ public class SampleSceneEntryPoint : MonoBehaviour
     [SerializeField] private SnakeController _snakePrefab;
     [SerializeField] private InputController _inputPrefab;
     [SerializeField] private EventSystem _eventSystem;
-    [SerializeField] private Assets.Scripts.MapEditor.Map _map;
+    [SerializeField] private Map _map;
     private void Start()
     {
         Instantiate(_eventSystem);

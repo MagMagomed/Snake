@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\MapEditor\PointData.cs" />
     <Compile Include="Assets\Scripts\MapEditor\EntryPoint.cs" />
     <Compile Include="Assets\Scripts\MapEditor\BrushData.cs" />
+    <Compile Include="Assets\Scripts\MapEditor\Map.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

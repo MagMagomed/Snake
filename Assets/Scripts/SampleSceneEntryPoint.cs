@@ -13,6 +13,7 @@ public class SampleSceneEntryPoint : MonoBehaviour
     [SerializeField] private SnakeController _snakePrefab;
     [SerializeField] private InputController _inputPrefab;
     [SerializeField] private EventSystem _eventSystem;
+    [SerializeField] private Assets.Scripts.MapEditor.Map _map;
     private void Start()
     {
         Instantiate(_eventSystem);
@@ -22,7 +23,7 @@ public class SampleSceneEntryPoint : MonoBehaviour
         var input = Instantiate(_inputPrefab);
 
         input.Initialize();
-        background.Initialize();
+        background.Initialize(_map);
         var startPosition = background.GetPosition(new Vector2Int(0, 0));
         snake.Initialize(startPosition, new MoveFX(background), input);
         apple.Initialize(snake, background);

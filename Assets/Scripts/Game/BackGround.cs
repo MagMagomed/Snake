@@ -2,6 +2,7 @@ using Assets.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -10,21 +11,23 @@ namespace Assets.Scripts.Game
 {
     public class BackGround : MonoBehaviour
     {
-        [SerializeField] private BackGroundData _backGroundData;
+        private Assets.Scripts.MapEditor.Map _map;
         [SerializeField] private GameObject _fieldElementPref;
         public Vector2[,] Range { get; private set; }
         public Vector2[,] GetRange()
         {
-            var range = new Vector2[(int)(_backGroundData.MaxX * 2 + 1), (int)(_backGroundData.MaxY * 2 + 1)];
-            for (int i = 0; i <= _backGroundData.MaxX * 2; i++)
+            var pointData = _map.PointData.ToArray();
+            var range = new Vector2[(int)(_map.BackGroundData.MaxX * 2 + 1), (int)(_map.BackGroundData.MaxY * 2 + 1)];
+            int k = 0;
+            for (int i = 0; i <= _map.BackGroundData.MaxX * 2; i++)
             {
-                float x = _backGroundData.MinX + i;
-
-                for (int j = 0; j <= _backGroundData.MaxY * 2; j++)
+                for (int j = 0; j <= _map.BackGroundData.MaxY * 2; j++)
                 {
-                    float y = _backGroundData.MinY + j;
-                    range[i, j] = new Vector2(x, y);
+                    k++;
+                    if(k == pointData.Length) break;
+                    range[i, j] = pointData[k].Position;
                 }
+                if (k == pointData.Length) break;
             }
             return range;
         }
@@ -51,9 +54,9 @@ namespace Assets.Scripts.Game
             if (coordinates.y < 0) coordinates.y = columns - 1;
             return coordinates;
         }
-        public void Initialize()
+        public void Initialize(Assets.Scripts.MapEditor.Map map)
         {
-            InitBackgroundData();
+            _map = map;
             Range = GetRange();
             int rows = Range.GetUpperBound(0) + 1;
             int columns = Range.Length / rows;
@@ -69,20 +72,6 @@ namespace Assets.Scripts.Game
             SceneController.OnLose += StopAllCoroutines;
         }
 
-        private void InitBackgroundData()
-        {
-            Camera camera = Camera.main;
-            Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0)); // bottom-left corner
-            Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1)); // top-right corner
-
-            _backGroundData = new BackGroundData()
-            {
-                MinX = min.x + 0.5f,
-                MaxX = max.x,
-                MinY = min.y + 0.5f,
-                MaxY = max.y - 0.5f
-            };
-        }
         private void OnDestroy()
         {
             SceneController.OnLose -= StopAllCoroutines;

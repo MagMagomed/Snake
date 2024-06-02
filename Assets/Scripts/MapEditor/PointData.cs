@@ -12,7 +12,7 @@ namespace Assets.Scripts.MapEditor
     /// Основные данные точки
     /// </summary>
     [Serializable]
-    public class PointData
+    public struct PointData
     {
         /// <summary>
         /// Положение за которое отвечает точка (не хранит в себе положение самой точки)

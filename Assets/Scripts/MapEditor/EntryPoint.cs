@@ -18,7 +18,7 @@ namespace Assets.Scripts.MapEditor
             UIController mapEnginUIControllerPrefab = null;
             if (_mapEnginUIControllerPrefab != null) mapEnginUIControllerPrefab = Instantiate(_mapEnginUIControllerPrefab);
 
-            mapEnginUIControllerPrefab.Initialize(Camera.main);
+            mapEnginUIControllerPrefab.Initialize();
         }
     }
 }

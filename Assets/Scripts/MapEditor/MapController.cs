@@ -23,22 +23,26 @@ namespace Assets.Scripts.MapEditor
             _pointDataMap = new List<PointData>();
             BuildMap();
         }
-        public void BuildMap()
+        public PointData[] GetPointDatas()
         {
-            var canvas = GetComponent<Canvas>();
+            return _pointDataMap.ToArray();
+        }
+        public BackGroundData GetBackGroundData() { return _backGroundData; }
+        private void BuildMap()
+        {
             var range = GetRange();
+            const int MARGIN_BETWEEN_POINTS = 50;
             foreach (var point in range)
             {
                 var pointObject = Instantiate(_pointPrefab, _mapDiv.transform);
-                pointObject.transform.SetParent(_mapDiv.transform, false);
-                pointObject.transform.Translate(point * 50);
+                pointObject.transform.Translate(point * MARGIN_BETWEEN_POINTS);
                 pointObject.Initialize(_brushController);
                 var pointData = pointObject.GetPointData();
                 pointData.Position = point;
                 _pointDataMap.Add(pointData);
             }
         }
-        public Vector2[,] GetRange()
+        private Vector2[,] GetRange()
         {
             var range = new Vector2[(int)(_backGroundData.MaxX * 2 + 1), (int)(_backGroundData.MaxY * 2 + 1)];
             for (int i = 0; i <= _backGroundData.MaxX * 2; i++)

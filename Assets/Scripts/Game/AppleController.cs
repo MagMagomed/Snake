@@ -62,28 +62,23 @@ namespace Assets.Scripts.Game
 
         private Vector2? GiveMeAPoint(Vector2[] exclude)
         {
-            var range = _backGround.Range;
-            int rows = range.GetUpperBound(0) + 1;    // количество строк
-            int columns = range.Length / rows;
-            List<Vector2Int> indexes = new List<Vector2Int>();
-            for (int i = 0; i < rows; i++)
+            var range = _backGround.GetAccessPositions();
+            List<int> indexes = new List<int>();
+            for (int i = 0; i < range.Count; i++)
             {
-                for (int j = 0; j < columns; j++)
+                if (exclude.Any(item =>
+                         Mathf.Approximately(item.x, range[i].x)
+                         && Mathf.Approximately(item.y, range[i].y)))
                 {
-                    if (exclude.Any(item =>
-                        Mathf.Approximately(item.x, range[i, j].x)
-                        && Mathf.Approximately(item.y, range[i, j].y)))
-                    {
-                        continue;
-                    }
-                    indexes.Add(new Vector2Int(i, j));
+                    continue;
                 }
+                indexes.Add(i);
             }
             var random = new System.Random();
 
             var index = random.Next(0, indexes.Count - 1);
-            var coordinates = indexes[index];
-            return range[coordinates.x, coordinates.y];
+            var coordinateIndex = indexes[index];
+            return range[coordinateIndex];
         }
     }
 }

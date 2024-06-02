@@ -2,6 +2,7 @@ using Assets.Scripts.Game.Interfaces;
 using Assets.Scripts.MapEditor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -30,6 +31,10 @@ namespace Assets.Scripts.Game
                 if (k == _points.Data.Count) break;
             }
             return range;
+        }
+        public List<Vector2> GetAccessPositions()
+        {
+            return _points.Data.Where(data => data.CurrentState != Enums.BrushState.ObstacleElement).Select(data => data.Position).ToList();
         }
         public Vector2 GetPosition(Vector2Int coordinates)
         {

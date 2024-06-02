@@ -1,11 +1,7 @@
-using Assets.Scripts;
+using Assets.Scripts.MapEditor;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Game
 {
@@ -16,7 +12,7 @@ namespace Assets.Scripts.Game
         public Vector2[,] Range { get; private set; }
         public Vector2[,] GetRange()
         {
-            var pointData = _map.PointData.ToArray();
+            var pointData = JsonUtility.FromJson<PointDataCollection>(_map.PointData);
             var range = new Vector2[(int)(_map.BackGroundData.MaxX * 2 + 1), (int)(_map.BackGroundData.MaxY * 2 + 1)];
             int k = 0;
             for (int i = 0; i <= _map.BackGroundData.MaxX * 2; i++)
@@ -24,10 +20,10 @@ namespace Assets.Scripts.Game
                 for (int j = 0; j <= _map.BackGroundData.MaxY * 2; j++)
                 {
                     k++;
-                    if(k == pointData.Length) break;
-                    range[i, j] = pointData[k].Position;
+                    if(k == pointData.Data.Count) break;
+                    range[i, j] = pointData.Data[k].Position;
                 }
-                if (k == pointData.Length) break;
+                if (k == pointData.Data.Count) break;
             }
             return range;
         }

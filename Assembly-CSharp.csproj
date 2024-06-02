@@ -67,20 +67,21 @@
     <Compile Include="Assets\Scripts\Game\InputViewController.cs" />
     <Compile Include="Assets\Scripts\Game\Enums\MovementDirection.cs" />
     <Compile Include="Assets\Scripts\Game\AppleController.cs" />
+    <Compile Include="Assets\Scripts\MapEditor\MapController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\BrushController.cs" />
     <Compile Include="Assets\Scripts\Game\Chain.cs" />
     <Compile Include="Assets\Scripts\Game\ChainController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\UIController.cs" />
     <Compile Include="Assets\Scripts\Game\SnakeController.cs" />
+    <Compile Include="Assets\Scripts\MapEditor\Map.cs" />
+    <Compile Include="Assets\Scripts\MapEditor\BrushData.cs" />
     <Compile Include="Assets\Scripts\Game\InputController.cs" />
+    <Compile Include="Assets\Scripts\MapEditor\PointData.cs" />
+    <Compile Include="Assets\Scripts\MapEditor\EntryPoint.cs" />
     <Compile Include="Assets\Scripts\Game\ObstacleController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\PointController.cs" />
     <Compile Include="Assets\Scripts\SceneController.cs" />
-    <Compile Include="Assets\Scripts\MapEditor\MapController.cs" />
-    <Compile Include="Assets\Scripts\MapEditor\PointData.cs" />
-    <Compile Include="Assets\Scripts\MapEditor\EntryPoint.cs" />
-    <Compile Include="Assets\Scripts\MapEditor\BrushData.cs" />
-    <Compile Include="Assets\Scripts\MapEditor\Map.cs" />
+    <Compile Include="Assets\Scripts\MapEditor\PointDataCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

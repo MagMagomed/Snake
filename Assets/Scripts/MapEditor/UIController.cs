@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Assets.Scripts.MapEditor;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEditor;
+using System.Linq;
 /// <summary>
 /// Контролирует UI редактора карты
 /// </summary>
@@ -26,12 +27,8 @@ public class UIController : MonoBehaviour
     {
         var pointDatas = _mapController.GetPointDatas();
         var map = new Map();
-        
-        map.PointData = new List<PointData>();
-        foreach (var pointData in pointDatas)
-        {
-            map.PointData.Add(pointData);
-        }
+
+        map.PointData = JsonUtility.ToJson(pointDatas);
         map.BackGroundData = _mapController.GetBackGroundData();
         AssetDatabase.CreateAsset(map, "Assets/Maps/" + map.Name + ".asset");
         AssetDatabase.SaveAssets();

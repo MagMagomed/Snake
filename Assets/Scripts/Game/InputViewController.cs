@@ -17,6 +17,7 @@ namespace Assets.Scripts.Game
             _canvas.worldCamera = Camera.main;
             _canvas.renderMode = RenderMode.ScreenSpaceCamera;
             _canvas.sortingLayerID = SortingLayer.GetLayerValueFromName("Front");
+            _canvas.sortingOrder = 5;
         }
 
     }

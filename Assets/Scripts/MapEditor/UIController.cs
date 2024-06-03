@@ -6,7 +6,6 @@ using Assets.Scripts.Game.Enums;
 using UnityEngine.UI;
 using Assets.Scripts.MapEditor;
 using Unity.VisualScripting.Dependencies.NCalc;
-using UnityEditor;
 using System.Linq;
 /// <summary>
 /// Контролирует UI редактора карты
@@ -25,17 +24,19 @@ public class UIController : MonoBehaviour
     }
     public void SavePointDatas()
     {
+#if UNITY_EDITOR
         var pointDatas = _mapController.GetPointDatas();
         var map = new Map();
 
         map.PointData = JsonUtility.ToJson(pointDatas);
         map.BackGroundData = _mapController.GetBackGroundData();
-        var assets = AssetDatabase.FindAssets("", new string[] { "Assets/Maps" });
-        AssetDatabase.CreateAsset(map, "Assets/Maps/Map_" + (assets.Length + 1) + ".asset");
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-        EditorUtility.FocusProjectWindow();
-        Selection.activeObject = map;
+        var assets = UnityEditor.AssetDatabase.FindAssets("", new string[] { "Assets/Maps" });
+        UnityEditor.AssetDatabase.CreateAsset(map, "Assets/Maps/Map_" + (assets.Length + 1) + ".asset");
+        UnityEditor.AssetDatabase.SaveAssets();
+        UnityEditor.AssetDatabase.Refresh();
+        UnityEditor.EditorUtility.FocusProjectWindow();
+        UnityEditor.Selection.activeObject = map;
+#endif
     }
     public void ChooseBackgroundBrush ()
     {

@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EntryPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 8373150320745561766, guid: 00180fdccf5926f4298bc8d041efbadd, type: 3}
+      propertyPath: _map
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c8442649eb211e488b9500943aff976, type: 2}
     - target: {fileID: 8373150320745561767, guid: 00180fdccf5926f4298bc8d041efbadd, type: 3}
       propertyPath: m_RootOrder
       value: 0
